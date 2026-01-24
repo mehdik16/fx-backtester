@@ -1,0 +1,12 @@
+[package]
+name = "fx-backtester"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+backtester = { path = "../backtester" }
+exporter = { path = "../exporter" }
+clap = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }

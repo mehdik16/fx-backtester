@@ -1,0 +1,13 @@
+[package]
+name = "backtester"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+data-loader = { path = "../data-loader" }
+strategy-engine = { path = "../strategy-engine" }
+metrics = { path = "../metrics" }
+tokio = { workspace = true }
+serde = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }

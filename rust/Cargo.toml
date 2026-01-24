@@ -1,0 +1,21 @@
+[workspace]
+
+members = [
+    "data-loader",
+    "strategy-engine",
+    "backtester",
+    "metrics",
+    "exporter",
+    "fx-backtester",
+]
+
+[workspace.dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+csv = "1.1"
+clap = { version = "4.0", features = ["derive"] }
+ndarray = "0.15"
+thiserror = "1.0"
+bytes = "1"
