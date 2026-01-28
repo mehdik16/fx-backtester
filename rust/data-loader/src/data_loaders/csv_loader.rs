@@ -46,12 +46,12 @@ mod tests {
         let data =
             "timestamp,open,high,low,close,volume\n2023-01-01T00:00:00Z,1.1,1.2,1.0,1.1,100.0\n";
         let file_path = Path::new("test_ohlcv.csv");
-        let mut file = File::create(&file_path).unwrap();
+        let mut file = File::create(file_path).unwrap();
         file.write_all(data.as_bytes()).unwrap();
 
         let data_loader = CsvDataLoader {};
 
-        let records = data_loader.load_data(&file_path).unwrap();
+        let records = data_loader.load_data(file_path).unwrap();
         assert_eq!(records.len(), 1);
         match &records[0] {
             DataRecord::Ohlcv(ohlcv) => {
@@ -67,12 +67,12 @@ mod tests {
     fn test_load_tick_data() {
         let data = "timestamp,bid,ask\n2023-01-01T00:00:00Z,1.1,1.2\n";
         let file_path = Path::new("test_tick.csv");
-        let mut file = File::create(&file_path).unwrap();
+        let mut file = File::create(file_path).unwrap();
         file.write_all(data.as_bytes()).unwrap();
 
         let data_loader = CsvDataLoader {};
 
-        let records = data_loader.load_data(&file_path).unwrap();
+        let records = data_loader.load_data(file_path).unwrap();
         assert_eq!(records.len(), 1);
         match &records[0] {
             DataRecord::Tick(tick) => {
@@ -88,12 +88,12 @@ mod tests {
     fn test_load_unsupported_format() {
         let data = "timestamp,foo,bar\n2023-01-01T00:00:00Z,1,2\n";
         let file_path = Path::new("test_unsupported.csv");
-        let mut file = File::create(&file_path).unwrap();
+        let mut file = File::create(file_path).unwrap();
         file.write_all(data.as_bytes()).unwrap();
 
         let data_loader = CsvDataLoader {};
 
-        let result = data_loader.load_data(&file_path);
+        let result = data_loader.load_data(file_path);
         assert!(matches!(result, Err(DataLoaderError::UnsupportedFormat)));
 
         std::fs::remove_file(file_path).unwrap();

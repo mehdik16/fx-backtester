@@ -1,3 +1,3 @@
-mod data_loaders;
-mod error;
-mod types;
+pub mod data_loaders;
+pub mod error;
+pub mod types;
