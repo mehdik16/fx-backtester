@@ -64,4 +64,17 @@ impl Position {
             self.domestic_ccy_amount += domestic_amount;
         }
     }
+
+    // TODO: Add function to display current position
+    pub fn display(&self) {
+        println!(
+            "Position: {} {} ({}), {} {} ({})",
+            self.domestic_ccy,
+            self.domestic_ccy_amount,
+            self.domestic_ccy_amount,
+            self.foreign_ccy,
+            self.foreign_ccy_amount,
+            self.foreign_ccy_amount
+        );
+    }
 }
