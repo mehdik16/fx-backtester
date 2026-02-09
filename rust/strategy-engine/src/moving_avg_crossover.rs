@@ -169,7 +169,6 @@ mod tests {
             Position::new("EUR".to_string(), "USD".to_string(), 1000.0, 0.0),
         );
         let ticks = create_ticks();
-        let _ = strategy.position.as_ref().unwrap().display(); // Display initial position
         for tick in ticks {
             strategy.on_tick(&tick);
         }
