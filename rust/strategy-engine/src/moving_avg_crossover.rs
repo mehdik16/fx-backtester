@@ -57,9 +57,128 @@ impl MovingAverageCrossoverStrategy {
 }
 
 // Unit tests for MovingAverageCrossoverStrategy
-/*
+
 #[cfg(test)]
 mod tests {
     use super::*;
-    use data_loader::types::{Ohlcv, Tick};
-} */
+    use data_loader::types::Tick;
+
+    // Helper function to create a ticks
+    fn create_ticks() -> Vec<Tick> {
+        vec![
+            Tick {
+                bid: 1.0,
+                ask: 1.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 2.0,
+                ask: 2.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 3.0,
+                ask: 3.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 4.0,
+                ask: 4.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 5.0,
+                ask: 5.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 2.0,
+                ask: 2.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 3.0,
+                ask: 3.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 2.0,
+                ask: 2.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 5.0,
+                ask: 5.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 1.0,
+                ask: 1.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 3.0,
+                ask: 3.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 4.0,
+                ask: 4.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 5.0,
+                ask: 5.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 6.0,
+                ask: 6.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 4.0,
+                ask: 4.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 2.0,
+                ask: 2.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 2.0,
+                ask: 2.0,
+                timestamp: Default::default(),
+            },
+            Tick {
+                bid: 2.0,
+                ask: 2.0,
+                timestamp: Default::default(),
+            },
+        ]
+    }
+
+    // Test the moving average crossover strategy
+    #[test]
+    fn test_moving_average_crossover_strategy() {
+        let mut strategy = MovingAverageCrossoverStrategy::new(
+            3,
+            5,
+            1000.0,
+            Position::new("EUR".to_string(), "USD".to_string(), 1000.0, 0.0),
+        );
+        let ticks = create_ticks();
+        let _ = strategy.position.as_ref().unwrap().display(); // Display initial position
+        for tick in ticks {
+            strategy.on_tick(&tick);
+        }
+        // Check if the position was updated correctly
+        assert!(strategy.position.is_some());
+        let position = strategy.position.unwrap();
+        // Call position.display to print the position details as part of the test output
+        position.display();
+
+        assert!(position.domestic_ccy_amount > 0.0); // Should have bought
+    }
+}
