@@ -46,7 +46,7 @@ mod tests {
     #[test]
     fn test_moving_average() {
         let mut ma = MovingAverage::new(3);
-        let ticks = vec![
+        let ticks = [
             Tick {
                 bid: 1.0,
                 ask: 1.0,
