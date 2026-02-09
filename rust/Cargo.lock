@@ -345,7 +345,6 @@ dependencies = [
  "data-loader",
  "ndarray",
  "serde",
- "strategy-engine",
 ]
 
 [[package]]
@@ -571,6 +570,8 @@ name = "strategy-engine"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "data-loader",
+ "metrics",
  "serde",
 ]
 

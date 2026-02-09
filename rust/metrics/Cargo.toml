@@ -7,4 +7,3 @@ edition = "2024"
 ndarray = { workspace = true }
 serde = { workspace = true }
 data-loader = {path = "../data-loader" }
-strategy-engine = { path = "../strategy-engine" }

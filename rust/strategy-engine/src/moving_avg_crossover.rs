@@ -1,3 +1,6 @@
+use data_loader::types::{Position, Tick};
+use metrics::indicator::TickIndicator;
+use metrics::moving_average::MovingAverage;
 pub struct MovingAverageCrossoverStrategy {
     short_ma: MovingAverage,
     long_ma: MovingAverage,
@@ -30,7 +33,7 @@ impl MovingAverageCrossoverStrategy {
             if short_ma_value > long_ma_value {
                 // Golden cross - buy signal
                 if self.position.is_none() {
-                    let mut position = Position::new(
+                    let position = Position::new(
                         "EUR".to_string(),
                         "USD".to_string(),
                         self.initial_capital,
@@ -54,8 +57,9 @@ impl MovingAverageCrossoverStrategy {
 }
 
 // Unit tests for MovingAverageCrossoverStrategy
+/*
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::types::{Ohlcv, Tick};
-}
+    use data_loader::types::{Ohlcv, Tick};
+} */

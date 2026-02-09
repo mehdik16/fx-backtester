@@ -28,10 +28,10 @@ pub enum DataRecord {
 
 #[derive(Debug)]
 pub struct Position {
-    domestic_ccy: String,
-    foreign_ccy: String,
-    domestic_ccy_amount: f64,
-    foreign_ccy_amount: f64,
+    pub domestic_ccy: String,
+    pub foreign_ccy: String,
+    pub domestic_ccy_amount: f64,
+    pub foreign_ccy_amount: f64,
 }
 
 impl Position {
