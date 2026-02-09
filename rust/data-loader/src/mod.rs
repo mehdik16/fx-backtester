@@ -4,4 +4,4 @@ pub mod types;
 pub use data_loaders::CsvDataLoader;
 pub use error::DataLoaderError;
 use std::path::Path;
-pub use types::{DataRecord, Ohlcv, Tick};
+pub use types::{DataRecord, Ohlcv, Position, Tick};

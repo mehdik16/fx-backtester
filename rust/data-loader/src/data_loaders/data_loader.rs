@@ -6,4 +6,6 @@ pub trait DataLoader {
 
     fn load_data(&self, file_path: &std::path::Path)
     -> Result<Self::DataIterator, DataLoaderError>;
+
+    //async fn load_data_async(&self, file_path: &std::path::Path) ->
 }

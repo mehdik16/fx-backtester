@@ -6,3 +6,5 @@ edition = "2024"
 [dependencies]
 ndarray = { workspace = true }
 serde = { workspace = true }
+data-loader = {path = "../data-loader" }
+strategy-engine = { path = "../strategy-engine" }
